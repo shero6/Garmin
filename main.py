@@ -2,6 +2,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import seaborn as sns
 
 # set pandas display
 pd.set_option('display.max_rows', 5000)
@@ -96,7 +97,6 @@ countsession(2018)
 countsession(2017)
 countsession(2016)
 
-
 # no of session per month over the 5 years
 session_per_month = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0, 12: 0}
 for s in df_activities['Start Time']:
@@ -133,4 +133,7 @@ plt.pie(df_agg_type['Count'],
         labels=df_agg_type.index,
         autopct='%1.0f%%',
         textprops={'fontsize': 14},colors=colors)
+plt.show()
+
+sns.barplot(y=df_agg_type.index,x=df_agg_type.Count, orient='h')
 plt.show()
